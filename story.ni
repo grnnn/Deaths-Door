@@ -24,6 +24,7 @@ The Laboratory is a room.
 The Cellar is a room.
 The Kitchen is a room.
 The Family Dining Room is a room.
+The Ballroom Balcony is a room.
 
 The player is in the Front Porch.
 
@@ -46,7 +47,8 @@ The North Corridor is north of the Family Room and south of the Library.
 The Antechamber is south of the Ballroom and west of the North Corridor.
 The Big Dining Room is west of the Ballroom and north of the Kitchen.
 The Family Dining Room is south of the kitchen.
-The Ballroom is west of the Library.
+The Ballroom Balcony is west of the Library.
+The Ballroom is below the Ballroom Balcony.
 
 The Laboratory is north of the Cellar and south of the Abyss.
 The Cellar is below the Kitchen.
@@ -59,7 +61,29 @@ The guest door is a closed locked door.
 The guest door is west of the Living Room.
 The guest door is east of the Family Dining Room.
 
-[monster logic]
+[Wife Monster Event]
+A monsterB is a thing. A monsterB is in the Ballroom.
+monsterBisAlive is a truth state that varies. monsterBisAlive is usually true.
+
+A chandelier support is a thing. A chandelier support is in the Ballroom Balcony.
+A knife is a thing. A knife is in the Study.
+
+instead of cutting chandelier support:
+	say "You cut the chandelier  support and the chandelier comes crashing down onto the monster on the ballroom floor! It seems safe to progress down to the Ballroom now.";
+	now monsterBisAlive is false.
+	
+every turn:
+	if the location of the player is the location of monsterB and monsterBisAlive is true:
+		end the story saying "you ded from monsterB".
+	
+[Butler Monster event]
+A monsterC is a thing. A monsterC is in the Kitchen.
+
+A servent bell is a thing. A servent bell is in the Antechamber.
+
+Understand hiding as something new.
+
+[Daugther Monster Pathfinding/event code]
 A monster is a thing. A monster is in the East Corridor.
 
 startChase is a truth state that varies. startChase is usually false.
@@ -77,7 +101,7 @@ every turn:
 
 every turn:
 	if the location of the player is the location of the monster and startChase is true:
-		end the story saying "you ded";
+		end the story saying "you ded from monsterA";
 
 every turn:
 	if the location of the player is the north corridor or the location of the player is the study:
