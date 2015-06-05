@@ -1,8 +1,8 @@
 "Death's Door" by Taylor Owen-Milner and Ethan Lie
 
 [Rooms]
-The Front porch is a room.
-The Living Room is a room.
+The Front porch is a room."The manor looms in front of you, an almost shapeless, grey behemoth lying in wait. It's almost certainly occupied by unearthly evils, and as you stand on the front porch, a feeling of anxiety washes over you. Curiosity has brought you this far. Will it bring you furthur? [line break][line break] To your north lies the entrance to the house.".
+The Living Room is a room. "You find yourself in the Living Room of the manor.".
 The West Corridor is a room.
 The Center Corridor is a room.
 The East Corridor is a room.
@@ -81,7 +81,7 @@ A monsterC is a thing. A monsterC is in the Kitchen.
 
 A servent bell is a thing. A servent bell is in the Antechamber.
 
-Understand hiding as something new.
+[Understand hiding as something new.]
 
 [Daugther Monster Pathfinding/event code]
 A monster is a thing. A monster is in the East Corridor.
