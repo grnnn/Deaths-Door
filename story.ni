@@ -2,17 +2,17 @@
 
 [Rooms]
 The Front porch is a room."The manor looms in front of you, an almost shapeless, grey behemoth lying in wait. It's almost certainly occupied by unearthly evils, and as you stand on the front porch, a feeling of anxiety washes over you. Curiosity has brought you this far. Will it bring you furthur? [line break][line break] To your north lies the entrance to the house.".
-The Living Room is a room. "You find yourself in the Living Room of the manor.".
-The West Corridor is a room.
-The Center Corridor is a room.
-The East Corridor is a room.
-The Bedroom is a room.
-The Master Bedroom is a room.
-The Servant's Quarters is a room.
-The Family Room is a room.
-The South Bathroom is a room.
-The Guest Bedroom is a room.
-The East Bathroom is a room.
+The Living Room is a room. "You enter Living Room of the manor. There are doors to the east, north, west, and south.".
+The West Corridor is a room. "You enter the a corridor with doors to the north and south. It continues eastward.".The printed name of The West Corridor is "The Corridor".
+The Center Corridor is a room. "You are in a corridor with doors to the north and south. It runs eastward and westward.".The printed name of The Center Corridor is "The Corridor".
+The East Corridor is a room. "You find yourself at the end of the corridor with doors to the north and south. It runs westward.".The printed name of The East Corridor is "The Corridor".
+The Bedroom is a room. "You are in a regular looking bedroom. There are exits to the north and to the east." The printed name of The Bedroom is "A Bedroom".
+The Master Bedroom is a room. "You are in a grand master bedroom. It looks like there is a bathroom to the east. There are doors leading south, west, and north as well. You can see a bright, silver light coming from that direction.".
+The Servant's Quarters is a room. "This bedroom seems minimilistic. There are 2 rough looking, twin sized beds there. There is a door to the south that leads to The Corridor, and there is a door to the east."
+The Family Room is a room. "This room looks like a smaller living room area. There are doors in all 4 directions.".
+The South Bathroom is a room. "This dingy bathroom still has the stink of ages past. There are doors to the north, east, and west.".
+The Guest Bedroom is a room. "This bedroom is moderately furnished, with a double bed and some rudimentary furniture. There are exits northward and westward.".
+The East Bathroom is a room. "This bathroom is well lit and there's a bathtub. Very nice. Too bad the only exit is to the west."
 The North Corridor is a room.
 The Study is a room.
 The Library is a room.
