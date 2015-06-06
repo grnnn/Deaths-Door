@@ -78,10 +78,46 @@ every turn:
 	
 [Butler Monster event]
 A monsterC is a thing. A monsterC is in the Kitchen.
+playerIsHidden is a truth state that varies. playerIsHidden is usually false.
 
-A servent bell is a thing. A servent bell is in the Antechamber.
+A servant bell is a thing. A servant bell is in the Antechamber.
+A dining table is a thing. A dining table is in the Big Dining Room.
 
-[Understand hiding as something new.]
+Inhiding is an action applying to one thing.
+Underhiding is an action applying to one thing.
+Ringing is an action applying to one thing.
+
+Understand "ring [something]" as ringing.
+Understand "hide under [something]" as underhiding. 
+Understand "hide in [something]" as inhiding.
+Understand "hide inside [something]" as inhiding.
+
+Carry out ringing:
+	say "You can't ring that. Besides, what good would making noise do?".
+Carry out underhiding:
+	say "There is no way you'll be able to hide under that.".
+	
+Instead of underhiding the dining table:
+	say "You duck under the dining table. You feel like you're well concealed now.";
+	now playerIsHidden is true.
+	
+
+Instead of ringing the servant bell:
+	if the location of the player is the Big Dining Room:
+		if playerIsHidden is false:
+			say "You ring the servant's bell... Wait, why are you trying to draw the monster toward you?! It will see you!";
+			now monsterC is in Big Dining Room;
+		otherwise:
+			say "You ring the servant's bell, trusting in the shadow of the table to hide you from the monster";
+			now monsterC is in Big Dining Room;
+	otherwise:
+		say "Ringing the bell right now probably isn't a good idea.";
+		stop.
+	
+Every turn:
+	if the location of the player is the location of monsterC and playerIsHidden is false:
+		end the story saying "you ded taylor plz fix this".
+	
 
 [Daugther Monster Pathfinding/event code]
 A monster is a thing. A monster is in the East Corridor.
