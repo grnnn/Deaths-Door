@@ -64,6 +64,7 @@ The guest door is east of the Family Dining Room.
 [Wife Monster Event]
 A monsterB is a thing. A monsterB is in the Ballroom. The printed name of monsterB is "a monster".
 monsterBisAlive is a truth state that varies. monsterBisAlive is usually true.
+ropeIsCut is a truth state that varies. ropeISCut is usually false.
 
 every turn:
 	if the location of the player is the ballroom balcony and monsterBisAlive is true:
@@ -73,9 +74,15 @@ A chandelier support is a thing. "WIthin arm's reach, a support is holding a mas
 A knife is a thing. "You can see a knife on the desk." A knife is in the Study. 
 
 instead of cutting chandelier support:
-	say "You cut the chandelier  support and the chandelier comes crashing down onto the monster on the ballroom floor! Disgustingly, the chandelier crushes the monster with a wet squelch. With its last deep breaths, the monster tries to crawl out from underneath the massive chandelier. Words form on its scabbed lips. Help. [line break][line break]It seems safe to progress down to the Ballroom now.";
-	now the printed name of monsterB is "a dead monster";
-	now monsterBisAlive is false.
+	if ropeIsCut is false:
+		say "You cut the chandelier  support and the chandelier comes crashing down onto the monster on the ballroom floor! Disgustingly, the chandelier crushes the monster with a wet squelch. With its last deep breaths, the monster tries to crawl out from underneath the massive chandelier. Words form on its scabbed lips. Help. [line break][line break]It seems safe to progress down to the Ballroom now.";
+		now the printed name of monsterB is "a dead monster";
+		now monsterBisAlive is false;
+		now ropeIsCut is true;
+	otherwise:
+		say "The support has already been severed.";
+		stop.
+	
 	
 every turn:
 	if the location of the player is the location of monsterB and monsterBisAlive is true:
