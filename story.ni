@@ -20,7 +20,7 @@ The Ballroom is a room. "This ballroom looks like it could hold over 100 people!
 The Antechamber is a room. "This room looks as if it were meant to receive guests. The old owners of this place must have had large parties.  [line break][line break]You can see an entrance to a large room to the north, as well as another exit to the east.".
 The Big Dining Room is a room. "This must have been where the guests ate. Each of the tables could easily fit 10 people. What happened to this place?  [line break][line break]There doors leading south and east.".
 The Abyss is a room. "The dark, deeper than the blackest part of your soul. In the ground, you see it. A great abyss lies before you. How far does it go? What have you become?[line break][line break] Do you see it? In the darkness. There lies secrets. There lies ruin. Worst of all, there lies nothing. What will you do? [line break][line break] This is where the game would end if it were done. It is not right now. Yay, congrats.".
-The Laboratory is a room. "Somehow, there's a rudimentary labarotory down here. What was the owner studying? What was he doing down here?  [line break][line break] There is a door to the south and the north.".
+The Laboratory is a room. "Somehow, there's a rudimentary labarotory down here. What was the owner studying? What was he doing down here?  You spot a mirror [line break][line break] There is a door to the south and the north.".
 The Cellar is a room. "This is where the wines and food were stored. Here, you could see bottles of wine that were worth more than your house.  [line break][line break]There is an exit to the north, as well as a way back up to the kitchen.".
 The Kitchen is a room. "You enter a large kitchen.  [line break][line break] There are exits to the north and south. You also see a door that looks like it leads dow into the cellar.".
 The Family Dining Room is a room. "This is where the owners must haved dined if they didn't have visitors. Quaintly, you imagine the small family that used to live here eating at the table in the center of the room.  [line break][line break] There are doors to the north and the east.".
@@ -109,7 +109,10 @@ Carry out underhiding:
 Instead of underhiding the dining table:
 	say "You duck under the dining table. You feel like you're well concealed now.";
 	now playerIsHidden is true.
-	
+
+every turn:
+	if the location of the player is the Big Dining Room and the location of monsterC is the kitchen:
+		say "You hear an unearthly moan from the room to the South. There's probably a monster in there too. The only door is to the south. If only you could lure him out somehow while remaining hidden. . . ".	
 
 Instead of ringing the servant bell:
 	if the location of the player is the Big Dining Room:
@@ -117,7 +120,7 @@ Instead of ringing the servant bell:
 			say "You ring the servant's bell... Wait, why are you trying to draw the monster toward you?! It will see you!";
 			now monsterC is in Big Dining Room;
 		otherwise:
-			say "You ring the servant's bell, trusting in the shadow of the table to hide you from the monster";
+			say "You ring the servant's bell, trusting in the shadow of the table to hide you from the monster. You hear the monster limp out into the room. Thankfully, the table is protecting you from his vicious sight. Now if only you could slip away into the next room to the south. . .";
 			now monsterC is in Big Dining Room;
 	otherwise:
 		say "Ringing the bell right now probably isn't a good idea.";
@@ -125,7 +128,8 @@ Instead of ringing the servant bell:
 	
 Every turn:
 	if the location of the player is the location of monsterC and playerIsHidden is false:
-		end the story saying "you ded taylor plz fix this".
+		say "The monster runs at you, its rotting, bulbous flesh bulging out of his tuxedo. He jumps at you. . .";
+		 end the story saying "The End".
 	
 
 [Daughter Monster Pathfinding/event code]
