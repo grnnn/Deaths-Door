@@ -19,8 +19,8 @@ The Library is a room. "This manor's library looks well stocked, though many of 
 The Ballroom is a room. "This ballroom looks like it could hold over 100 people! This house must have been really something back in the day. . .  [line break][line break] You can see a way up to the balcony, as well as exits to the south and west.".
 The Antechamber is a room. "This room looks as if it were meant to receive guests. The old owners of this place must have had large parties.  [line break][line break]You can see an entrance to a large room to the north, as well as another exit to the east.".
 The Big Dining Room is a room. "This must have been where the guests ate. Each of the tables could easily fit 10 people. What happened to this place?  [line break][line break]There doors leading south and east.".
-The Abyss is a room. "The dark, deeper than the blackest part of your soul. In the ground, you see it. A great abyss lies before you. How far does it go? What have you become?[line break][line break] Do you see it? In the darkness. There lies secrets. There lies ruin. Worst of all, there lies nothing. What will you do? [line break][line break] This is where the game would end if it were done. It is not right now. Yay, congrats.".
-The Laboratory is a room. "Somehow, there's a rudimentary labarotory down here. What was the owner studying? What was he doing down here?  You spot a mirror [line break][line break] There is a door to the south and the north.".
+The Abyss is a room. "The dark, deeper than the blackest part of your soul. In the ground, you see it. A great abyss lies before you. How far does it go? What have you become?[line break][line break] Do you see it? In the darkness. There lies secrets. There lies ruin. Worst of all, there lies nothing. What will you do?".
+The Laboratory is a room. "Somehow, there's a rudimentary labarotory down here. What was the owner studying? What was he doing down here? [line break][line break] There is a door to the south and the north.".
 The Cellar is a room. "This is where the wines and food were stored. Here, you could see bottles of wine that were worth more than your house.  [line break][line break]There is an exit to the north, as well as a way back up to the kitchen.".
 The Kitchen is a room. "You enter a large kitchen.  [line break][line break] There are exits to the north and south. You also see a door that looks like it leads dow into the cellar.".
 The Family Dining Room is a room. "This is where the owners must haved dined if they didn't have visitors. Quaintly, you imagine the small family that used to live here eating at the table in the center of the room.  [line break][line break] There are doors to the north and the east.".
@@ -211,12 +211,43 @@ The pit is a thing. The pit is in the Abyss. The pit is fixed in place.
 	
 Carry out intojumping the pit:
 	if the location of the player is the Abyss:
-		say "Taylor plz";
+		say "You jump. The abyss consumes you. You fall and fall and fall. Soon, all light is extinguished. You want to feel fear, but you know there is nothing down here. There never was anything down here. There never will be anything down here.";
+		end the story saying "The End";
 	otherwise:
 		say "This makes no sense.".
 	
 Carry out intojumping:
 	say "This makes no sense.".
+
+[End Scene]
+A mirror is a thing. "You spot an inconspicuous mirror in the corner of the room." A mirror is in the laboratory.
+understand "read" as examining.
+mInspected is a truth state that varies. mInspected is usually false;
+
+Carry out examining mirror:
+	if the location of the player is the laboratory:
+		say "Slowly, you look into the mirror. You see your reflection, and it horrifies you. The pustoules are starting to form. Your clothes are ripped and fading due to the growths in your limbs. You can almost feel your bones crunching under your weight. You've become on of them, one of the monsters.";
+		now mInspected is true;
+	otherwise:
+		say "That makes no sense.".
+
+reachedEnd is a truth state that varies. reachedEnd is usually false.
+
+every turn:
+	if the location of the player is the abyss:
+		now reachedEnd is true.
+		
+every turn:
+	if the location of the player is the laboratory and reachedEnd is true:
+		say "You choose to go back. Maybe you can keep yourself alive somehow. If you reached a doctor soon, maybe they could. . . maybe. . . maybe you can consume then. Maybe you can dream of their screaming! Yes, kill, KILL!";
+		end the story saying "The End".
+		
+every turn:
+	if the location of the player is the abyss:
+		if mInspected is true:
+			say "You have a choice. You've become one of them now. You can jump into the pit, then no one can be exposed to your monstrosity ever again. Then again, you can escape, maybe beat this thing. You still have your conciousness. You don't know how long it'll take before you fully transform into one of those things. You can try going back south.";
+		if mInspected is false:
+			say "You have a choice. The abyss calls to you. It beckons. You can jump into the pit, forego your puny human life. Or you can go back south. It's up to you.".
 
 [Misc]		
 Release along with a website, the source text and an interpreter.
