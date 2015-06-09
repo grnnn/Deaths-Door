@@ -198,6 +198,23 @@ every turn:
 		now monsterADed is false;
 		now startChase is false.
 		
+[Final event]
+
+IntoJumping is an action applying to one thing.
+Understand "jump into [something]" as IntoJumping.
+
+The pit is a thing. The pit is in the Abyss. The pit is fixed in place.
+	
+Carry out intojumping the pit:
+	if the location of the player is the Abyss:
+		say "Taylor plz";
+	otherwise:
+		say "This makes no sense.".
+	
+Carry out intojumping:
+	say "This makes no sense.".
+
+[Misc]		
 Release along with a website, the source text and an interpreter.
 
 The story description is "Explore a haunted house! Run from some monsters! Die a lot! Die some more! Welcome to our horror game!!".
